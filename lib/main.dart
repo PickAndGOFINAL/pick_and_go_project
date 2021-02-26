@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:pick_and_go_project/Project_Screens/login_screen.dart';
 import 'package:pick_and_go_project/Project_Screens/logo_Screen.dart';
 
 main ()=>runApp(MyApp());
@@ -9,10 +10,10 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
 
-      initialRoute: 'logoScreens',
+      initialRoute: LoginScreen.id  ,
 
       routes: {
-        'logoScreens':(context)=> logoScreens(),
+        LoginScreen.id :(context)=> LoginScreen(),
 
 
 
