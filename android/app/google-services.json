@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "314010300393",
+    "project_id": "pickandgoproject",
+    "storage_bucket": "pickandgoproject.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:314010300393:android:868b1f62bbf3e26ca1a578",
+        "android_client_info": {
+          "package_name": "example.pick_and_go_project"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "314010300393-emd6smce7cokfv1frj6fuergptv441am.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCMnr2qjclVd8ovR54PxjYASW6tHtdVVIc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "314010300393-emd6smce7cokfv1frj6fuergptv441am.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

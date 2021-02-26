@@ -42,14 +42,35 @@ class MyTextFiled extends StatelessWidget {
 
   final String Myhint;
   final IconData Myicon;
+  String Myerrormessage (String error){
+    switch(Myhint){
+
+      case  'Please Enter Your Email' : return 'Email is Empty';
+      case  'Please Enter Your Password' : return 'Password is Empty';
+      case  'Please Enter Your Name' : return 'Name is Empty';
+      case  'Please Enter Your CarPlate' : return 'CarPlate is Empty';
+
+  }
+
+  }
   MyTextFiled({@required this.Myicon , @required this.Myhint });
 
   @override
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 20),
-      child: TextField(
 
+      child: TextFormField(
+       validator: (value){
+         if(value.isEmpty){
+           return Myerrormessage(Myhint);
+
+         }
+
+       },
+       cursorColor: Colors.white,
+        style: TextStyle(color: Colors.white),
+        textAlign: TextAlign.center,
         decoration: InputDecoration(
           hintText:  Myhint,
           prefixIcon: Icon(Myicon,color: Colors.white),
@@ -66,6 +87,16 @@ class MyTextFiled extends StatelessWidget {
 
           ),
           focusedBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(20),
+              borderSide: BorderSide(
+
+                color: Colors.black,
+
+              )
+
+
+          ),
+          border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(20),
               borderSide: BorderSide(
 
