@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:pick_and_go_project/Project_Screens/constants.dart';
 import 'package:pick_and_go_project/Project_Screens/signup_screen.dart';
 import 'package:pick_and_go_project/Project_Services/Auth.dart';
@@ -61,21 +62,33 @@ class LoginScreen extends StatelessWidget {
          SizedBox(height: 30,),
          Padding(
            padding: const EdgeInsets.symmetric(horizontal: 140),
-           child: FlatButton(
-             shape: RoundedRectangleBorder(
-               borderRadius: BorderRadius.circular(20),
+           child: Builder(
+             builder:(context)=> FlatButton(
+               shape: RoundedRectangleBorder(
+                 borderRadius: BorderRadius.circular(20),
 
-             ),
+               ),
         color: Colors.brown,
-               onPressed: ()async{
-                 if(Myglobalkey.currentState.validate()) {
-                   Myglobalkey.currentState.save();
-                   final result = await _auth.SignIn(UserEmail, UserPassword);
-                   print(result.user.uid);
-                 }
-               },
+                 onPressed: ()async{
+                 try{
+                   if(Myglobalkey.currentState.validate()) {
+                     Myglobalkey.currentState.save();
+                     final result = await _auth.SignIn(UserEmail, UserPassword);
 
-               child: Text("Login",style: TextStyle(fontSize: 20,color: Colors.white),)
+                   }
+                 }on PlatformException catch(e){
+                   print(e.toString());
+                   Scaffold.of(context).showSnackBar(SnackBar(
+
+                       content:Text(
+                           e.message) ));
+
+                 }
+
+                 },
+
+                 child: Text("Login",style: TextStyle(fontSize: 20,color: Colors.white),)
+             ),
            ),
          ),
          SizedBox(height: 30,),
