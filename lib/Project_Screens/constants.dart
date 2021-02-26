@@ -42,6 +42,7 @@ class MyTextFiled extends StatelessWidget {
 
   final String Myhint;
   final IconData Myicon;
+  final Function Click;
   String Myerrormessage (String error){
     switch(Myhint){
 
@@ -53,7 +54,7 @@ class MyTextFiled extends StatelessWidget {
   }
 
   }
-  MyTextFiled({@required this.Myicon , @required this.Myhint });
+  MyTextFiled({@required this.Click,@required this.Myicon , @required this.Myhint });
 
   @override
   Widget build(BuildContext context) {
@@ -68,8 +69,10 @@ class MyTextFiled extends StatelessWidget {
          }
 
        },
+        onSaved: Click,
        cursorColor: Colors.white,
         style: TextStyle(color: Colors.white),
+        obscureText: Myhint =='Please Enter Your Password'? true:false,
         textAlign: TextAlign.center,
         decoration: InputDecoration(
           hintText:  Myhint,

@@ -1,11 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:pick_and_go_project/Project_Screens/constants.dart';
 import 'package:pick_and_go_project/Project_Screens/signup_screen.dart';
-
+import 'package:pick_and_go_project/Project_Services/Auth.dart';
 
 class LoginScreen extends StatelessWidget {
   static String id='LoginScreen';
   final GlobalKey<FormState> Myglobalkey =GlobalKey<FormState>();
+  String UserEmail;
+  String UserPassword;
+  final _auth = Auth();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -37,33 +40,24 @@ class LoginScreen extends StatelessWidget {
                    ),
                  ),
 
-
-
-
-
-
-
-
                ],
-
-
-
-
-
-
-
-
-
-
-
 
              ),
            ),
          ),
          SizedBox(height: 30,),
-         MyTextFiled(Myhint: 'Please Enter Your Email', Myicon: Icons.email,),
+         MyTextFiled(
+           Click:(value){
+
+             UserEmail = value;
+
+
+           },Myhint: 'Please Enter Your Email', Myicon: Icons.email,),
          SizedBox(height: 30,),
-         MyTextFiled(Myhint: 'Please Enter Your Password', Myicon: Icons.lock,),
+         MyTextFiled(
+           Click: (value){
+               UserPassword=value;
+             },Myhint: 'Please Enter Your Password', Myicon: Icons.lock,),
          SizedBox(height: 30,),
          Padding(
            padding: const EdgeInsets.symmetric(horizontal: 140),
@@ -73,9 +67,11 @@ class LoginScreen extends StatelessWidget {
 
              ),
         color: Colors.brown,
-               onPressed: (){
+               onPressed: ()async{
                  if(Myglobalkey.currentState.validate()) {
-
+                   Myglobalkey.currentState.save();
+                   final result = await _auth.SignIn(UserEmail, UserPassword);
+                   print(result.user.uid);
                  }
                },
 
