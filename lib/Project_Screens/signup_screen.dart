@@ -8,6 +8,7 @@ import 'package:pick_and_go_project/Project_Screens/login_screen.dart';
 import 'package:pick_and_go_project/Project_Services/Auth.dart';
 import 'package:modal_progress_hud/modal_progress_hud.dart';
 
+
 class SignupScreen extends StatelessWidget {
   static String id='SignupScreen';
   final GlobalKey<FormState> Myglobalkey =GlobalKey<FormState>();
