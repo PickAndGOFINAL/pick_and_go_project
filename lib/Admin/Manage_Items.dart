@@ -97,7 +97,7 @@ class _ManageItemsState extends State<ManageItems> {
                                    GestureDetector(
 
                                        onTap: () {
-                                          Navigator.pushNamed(context, EditItems.id);
+                                          Navigator.pushNamed(context, EditItems.id ,arguments: items[index]);
                                        },
                                        child:
                                        Icon(Icons.edit,
