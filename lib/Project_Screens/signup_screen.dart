@@ -92,7 +92,7 @@ class SignupScreen extends StatelessWidget {
                               Myglobalkey.currentState.save();
                               print(UserEmail);
                               print(UserPassword);
-                              final authResult= await _auth.SignUp(UserEmail, UserPassword);
+                              final authResult= await _auth.SignUp(UserEmail.trim(), UserPassword.trim());
                               progresshud.changeLoading(false);
                               print(authResult.user.uid);
                             }

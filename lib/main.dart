@@ -7,6 +7,7 @@ import 'package:pick_and_go_project/Admin/Manage_Items.dart';
 import 'package:pick_and_go_project/Project_Provider/AdminState.dart';
 import 'package:pick_and_go_project/Project_Provider/Progress_hud.dart';
 import 'package:pick_and_go_project/Project_Screens/Kiosk_Screen.dart';
+import 'package:pick_and_go_project/Project_Screens/Menu_Screen.dart';
 import 'package:pick_and_go_project/Project_Screens/login_screen.dart';
 import 'package:pick_and_go_project/Project_Screens/logo_Screen.dart';
 import 'package:pick_and_go_project/Project_Screens/signup_screen.dart';
@@ -31,7 +32,7 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
 
 
-        initialRoute:   Admin.id  ,
+        initialRoute:    MenuScreen.id ,
         routes: {
           LoginScreen.id :(context)=> LoginScreen(),
           SignupScreen.id:(context)=> SignupScreen(),
@@ -40,6 +41,7 @@ class MyApp extends StatelessWidget {
           AddItems.id:(context)=>AddItems(),
           ManageItems.id:(context)=>ManageItems(),
           EditItems.id:(context)=>EditItems(),
+          MenuScreen.id:(context)=>MenuScreen(),
 
 
 

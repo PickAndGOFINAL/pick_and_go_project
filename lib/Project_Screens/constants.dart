@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 
 const kmaincolor=Color(0xcea762);
 const kTextFiled=Color(0xfaf6ef);
+const ktapbar = Color(0xFFC1BDB8);
 
 
 const kItemsCollections ='Items';
@@ -12,6 +13,10 @@ const kItemName='itemName';
 const kItemPrice='itemPrice';
 const kItemCategory ='itemCategory';
 const kItemImage='itemImage';
+
+const khotdrinks = 'hot drinks';
+const kcolddrinks = 'cold drinks';
+const kpastries = 'pastries';
 
 
 
