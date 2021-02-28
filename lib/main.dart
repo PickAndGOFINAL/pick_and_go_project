@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:pick_and_go_project/Admin/Add_Items.dart';
 import 'package:pick_and_go_project/Admin/Admin.dart';
 import 'package:pick_and_go_project/Admin/Edit_Items.dart';
+import 'package:pick_and_go_project/Admin/Manage_Items.dart';
 import 'package:pick_and_go_project/Project_Provider/AdminState.dart';
 import 'package:pick_and_go_project/Project_Provider/Progress_hud.dart';
 import 'package:pick_and_go_project/Project_Screens/Kiosk_Screen.dart';
@@ -37,9 +38,8 @@ class MyApp extends StatelessWidget {
           Kiosk_Screen.id:(context)=> Kiosk_Screen(),
           Admin.id : (context)=> Admin(),
           AddItems.id:(context)=>AddItems(),
+          ManageItems.id:(context)=>ManageItems(),
           EditItems.id:(context)=>EditItems(),
-
-
 
 
 

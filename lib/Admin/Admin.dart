@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:pick_and_go_project/Admin/Add_Items.dart';
-import 'package:pick_and_go_project/Admin/Edit_Items.dart';
+import 'package:pick_and_go_project/Admin/Manage_Items.dart';
 class Admin extends StatelessWidget {
   static String id='Admin';
   @override
@@ -40,7 +40,7 @@ class Admin extends StatelessWidget {
 
           {
 
-            Navigator.pushNamed(context, EditItems.id);
+            Navigator.pushNamed(context, ManageItems.id);
           },
 
               child: Text('Editing on Items'),

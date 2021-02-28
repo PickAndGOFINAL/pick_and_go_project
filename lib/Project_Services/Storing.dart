@@ -32,23 +32,12 @@ _firestore.collection(kItemsCollections).add(
 
  }
 
+ deleteItems(ID){
+
+  _firestore.collection(kItemsCollections).document(ID).delete();
+ }
+
 
 }
 
 
-/*
- for (var document in DataSnpanshot.documents)
-
- {
-  var docData  = document.data;
-
-  items.add(Item(
-   Iname: docData[kItemName],
-   Iprice: docData[kItemPrice],
-   Icatgory: docData[kItemCategory],
-   Iimage: docData[kItemImage],
-
-  ));
-
- }
- */
