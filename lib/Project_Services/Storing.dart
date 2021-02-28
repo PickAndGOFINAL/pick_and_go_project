@@ -25,6 +25,30 @@ _firestore.collection(kItemsCollections).add(
 
 
  }
+ Stream<QuerySnapshot> loadItems() {
+
+
+ return _firestore.collection(kItemsCollections).snapshots();
+
+ }
 
 
 }
+
+
+/*
+ for (var document in DataSnpanshot.documents)
+
+ {
+  var docData  = document.data;
+
+  items.add(Item(
+   Iname: docData[kItemName],
+   Iprice: docData[kItemPrice],
+   Icatgory: docData[kItemCategory],
+   Iimage: docData[kItemImage],
+
+  ));
+
+ }
+ */
