@@ -9,14 +9,28 @@ import 'package:provider/provider.dart';
 import 'package:pick_and_go_project/Project_Screens/Kiosk_Screen.dart';
 import 'package:pick_and_go_project/Admin/Admin.dart';
 
-class LoginScreen extends StatelessWidget {
+class LoginScreen extends StatefulWidget {
   static String id = 'LoginScreen';
+
+  @override
+  _LoginScreenState createState() => _LoginScreenState();
+}
+
+class _LoginScreenState extends State<LoginScreen> {
   final GlobalKey<FormState> Myglobalkey = GlobalKey<FormState>();
+
   String UserEmail;
+
   String UserPassword;
+
   final _auth = Auth();
+
   bool isAdmin = false;
+
   final AdminPassword = 'admin1234';
+
+
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
