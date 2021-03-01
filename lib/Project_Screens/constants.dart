@@ -7,12 +7,19 @@ const ktapbar = Color(0xFFC1BDB8);
 
 const kItemsCollections ='Items';
 
+const kbarnorders ='barnorders';
+const korderdetails = 'orderdetails';
+const ktotalprice = 'totalprice';
+const karrivaltime = 'arrivaltime';
+
+
 
 
 const kItemName='itemName';
 const kItemPrice='itemPrice';
 const kItemCategory ='itemCategory';
 const kItemImage='itemImage';
+const kItemquantity = 'itemquantity';
 
 const khotdrinks = 'hot drinks';
 const kcolddrinks = 'cold drinks';
