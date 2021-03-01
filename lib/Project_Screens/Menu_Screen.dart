@@ -3,6 +3,7 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pick_and_go_project/Admin/Edit_Items.dart';
 import 'package:pick_and_go_project/Items/item.dart';
+import 'package:pick_and_go_project/Project_Screens/Items_Additions.dart';
 import 'package:pick_and_go_project/Project_Services/Auth.dart';
 import 'package:pick_and_go_project/Project_Services/Storing.dart';
 
@@ -64,8 +65,9 @@ class MenuScreen extends StatefulWidget {
                children: <Widget>[
 
                  HotDrinks(),
-                 ColdDrinks(),
-                  Pastries(),
+                 ItemsCatogryDisplay(kcolddrinks),
+                 ItemsCatogryDisplay(kpastries),
+
 
 
                ],
@@ -118,6 +120,9 @@ class MenuScreen extends StatefulWidget {
                Padding(
                  padding: EdgeInsets.symmetric(horizontal: 15,vertical: 15),
                  child: GestureDetector(
+                   onTap: (){
+                     Navigator.pushNamed(context, (ItemsAdditions.id),arguments: items[index] );
+                     },
                    child: Stack(
                      children: <Widget>[
                        Positioned.fill(
@@ -186,9 +191,9 @@ class MenuScreen extends StatefulWidget {
 
 
 
- Widget ColdDrinks() {
+ Widget ItemsCatogryDisplay(String catogry) {
       List <Item> items ;
-      items = getItemsCatogry(kcolddrinks);
+      items = getItemsCatogry(catogry);
      return GridView.builder(
        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
          // (Hint) Number of Grid in each row
@@ -201,6 +206,10 @@ class MenuScreen extends StatefulWidget {
            Padding(
              padding: EdgeInsets.symmetric(horizontal: 15,vertical: 15),
              child: GestureDetector(
+               onTap: (){
+
+                 Navigator.pushNamed(context, (ItemsAdditions.id),arguments: items[index]);
+               },
                child: Stack(
                  children: <Widget>[
                    Positioned.fill(
@@ -258,6 +267,9 @@ class MenuScreen extends StatefulWidget {
 
  }
 
+
+
+
    List<Item> getItemsCatogry(String khotdrinks) {
 
      List <Item> items =[];
@@ -274,78 +286,7 @@ class MenuScreen extends StatefulWidget {
      return items;
    }
 
-  Widget Pastries() {
 
-    List <Item> items ;
-    items = getItemsCatogry(kpastries);
-    return GridView.builder(
-      gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-        // (Hint) Number of Grid in each row
-        crossAxisCount:2 ,
-        childAspectRatio: .7,
-
-      ),
-      itemBuilder: (context, index) =>
-
-          Padding(
-            padding: EdgeInsets.symmetric(horizontal: 15,vertical: 15),
-            child: GestureDetector(
-              child: Stack(
-                children: <Widget>[
-                  Positioned.fill(
-                    child: Image(
-                      fit: BoxFit.fill,
-                      image: AssetImage(items[index].Iimage),
-                    ),
-                  ),
-                  Positioned(
-                    bottom: 0,
-                    child: Opacity(
-                      opacity: .6,
-                      child: Container(
-                        width: MediaQuery.of(context).size.width,
-                        height: 90,
-                        color: Colors.white,
-                        child: Padding(
-                          padding: const EdgeInsets.only(left: 40),
-                          child: Column(
-                            crossAxisAlignment: CrossAxisAlignment.start,
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children: <Widget>[
-                              // (Hint) The Detials of the each Item such as ( price , Name)
-                              Text(items[index].Iname,style: TextStyle(fontSize: 15)),
-                              Padding(
-                                padding: const EdgeInsets.only(left: 40),
-                                child: Text('${items[index].Iprice} \$',style: TextStyle(fontSize: 15)),
-                              ),
-
-
-
-                            ],
-
-
-                          ),
-                        ),
-                      ),
-                    ),
-                  ),
-
-
-
-
-                ],
-
-
-
-              ),
-            ),
-          ),
-      itemCount: items.length,
-    );
-
-
-
-  }
 
  }
 

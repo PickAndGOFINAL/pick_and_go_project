@@ -4,8 +4,11 @@ import 'package:pick_and_go_project/Admin/Add_Items.dart';
 import 'package:pick_and_go_project/Admin/Admin.dart';
 import 'package:pick_and_go_project/Admin/Edit_Items.dart';
 import 'package:pick_and_go_project/Admin/Manage_Items.dart';
+import 'package:pick_and_go_project/Cart/Cart.dart';
+import 'package:pick_and_go_project/Cart/Cart_Screen.dart';
 import 'package:pick_and_go_project/Project_Provider/AdminState.dart';
 import 'package:pick_and_go_project/Project_Provider/Progress_hud.dart';
+import 'package:pick_and_go_project/Project_Screens/Items_Additions.dart';
 import 'package:pick_and_go_project/Project_Screens/Kiosk_Screen.dart';
 import 'package:pick_and_go_project/Project_Screens/Menu_Screen.dart';
 import 'package:pick_and_go_project/Project_Screens/login_screen.dart';
@@ -23,8 +26,13 @@ class MyApp extends StatelessWidget {
     ChangeNotifierProvider<ProgressHud>(
     create: (context)=>ProgressHud(),),
 
-        ChangeNotifierProvider<AdminState>(
-          create: (context)=>AdminState(),),
+
+    ChangeNotifierProvider<AdminState>(
+    create: (context)=>AdminState(),),
+
+    ChangeNotifierProvider<Cart>(
+    create: (context)=>Cart(),),
+
 
 
 
@@ -42,7 +50,8 @@ class MyApp extends StatelessWidget {
           ManageItems.id:(context)=>ManageItems(),
           EditItems.id:(context)=>EditItems(),
           MenuScreen.id:(context)=>MenuScreen(),
-
+          ItemsAdditions.id:(context)=>ItemsAdditions(),
+          CartScreen.id:(context)=>CartScreen(),
 
 
 
