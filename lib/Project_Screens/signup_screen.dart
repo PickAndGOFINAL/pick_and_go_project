@@ -1,7 +1,10 @@
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pick_and_go_project/Project_Provider/Progress_hud.dart';
+import 'package:pick_and_go_project/Project_Screens/User_Profile.dart';
+import 'package:pick_and_go_project/Project_Services/Storing.dart';
 import 'package:provider/provider.dart';
 import 'constants.dart';
 import 'package:pick_and_go_project/Project_Screens/login_screen.dart';
@@ -14,7 +17,11 @@ class SignupScreen extends StatelessWidget {
   final GlobalKey<FormState> Myglobalkey =GlobalKey<FormState>();
   String UserEmail;
   String UserPassword;
+  String UserName;
+  String UserCarPlate;
   final _auth = Auth();
+
+  final Firestore _firestore = Firestore.instance;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -71,9 +78,24 @@ class SignupScreen extends StatelessWidget {
 
                   Myhint: 'Please Enter Your Password', Myicon: Icons.lock,),
                 SizedBox(height: 10,),
-                MyTextFiled(Myhint: 'Please Enter Your Name', Myicon: Icons.person,),
+                MyTextFiled(
+
+                  Click: (value){
+
+                    UserName = value;
+                  },
+
+                  Myhint: 'Please Enter Your Name', Myicon: Icons.person,),
                 SizedBox(height: 10,),
-                MyTextFiled(Myhint: 'Please Enter Your CarPlate', Myicon:Icons.directions_car_rounded,),
+                MyTextFiled(
+
+                  Click: (value){
+
+                    UserCarPlate = value;
+                  },
+
+
+                  Myhint: 'Please Enter Your CarPlate', Myicon:Icons.directions_car_rounded,),
                 SizedBox(height: 10,),
                 Padding(
                   padding: const EdgeInsets.symmetric(horizontal: 140),
@@ -90,23 +112,22 @@ class SignupScreen extends StatelessWidget {
                           try{
                             if(Myglobalkey.currentState.validate()) {
                               Myglobalkey.currentState.save();
-                              print(UserEmail);
-                              print(UserPassword);
                               final authResult= await _auth.SignUp(UserEmail.trim(), UserPassword.trim());
+                              _firestore.collection('users').document(authResult.user.uid).setData({
+                               'UserName': UserName,
+                               'UserCarPlate':UserCarPlate,
+                              });
+                              Navigator.pushNamed(context, UserProfile.id);
                               progresshud.changeLoading(false);
-                              print(authResult.user.uid);
+                        
                             }
                           } on PlatformException catch(e){
 
                             progresshud.changeLoading(false);
                            Scaffold.of(context).showSnackBar(SnackBar(
-
-                               content:Text(
-                                   e.message) ));
-
+                               content:Text(e.message) ));
                           }
                           progresshud.changeLoading(false);
-
                         },
 
                         child: Text("Sign in",style: TextStyle(fontSize: 20,color: Colors.white),)

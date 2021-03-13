@@ -6,8 +6,9 @@ class Item{
   String Icatgory;
   String Iid;
   int Iquantity;
+  String Isugar;
 
-Item({this.Iname,this.Iprice,this.Icatgory,this.Iimage,this.Iid,this.Iquantity});
+Item({this.Iname,this.Iprice,this.Icatgory,this.Iimage,this.Iid,this.Iquantity,this.Isugar});
 
 
 }

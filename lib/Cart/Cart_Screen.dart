@@ -87,7 +87,7 @@ Future <void> opentimePicker(BuildContext context) async{
                         padding: const EdgeInsets.all(15),
                         child: Container(
 
-                          height: screenhighet * .15,
+                          height: screenhighet * .20,
                           color: Colors.white,
                           child: Row(
                             children: <Widget>[
@@ -113,6 +113,10 @@ Future <void> opentimePicker(BuildContext context) async{
                                           fontWeight: FontWeight.bold),),
                                       SizedBox(height: 10,),
                                       Text('Quantity:${items[index].Iquantity} ',
+                                        style: TextStyle(fontSize: 20,
+                                            fontWeight: FontWeight.bold),),
+                                      SizedBox(height: 10,),
+                                      Text('${items[index].Isugar} ',
                                         style: TextStyle(fontSize: 20,
                                             fontWeight: FontWeight.bold),),
 

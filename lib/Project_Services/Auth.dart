@@ -4,6 +4,8 @@ class Auth{
 
   final _auth  =FirebaseAuth.instance;
 
+
+
   Future<AuthResult>SignUp(String email, String passoword) async
 
   {
