@@ -16,7 +16,7 @@ class ItemsAdditions extends StatefulWidget {
 class _ItemsAdditionsState extends State<ItemsAdditions> {
  int Itemquantity = 1;
  int _selectedSize = 0;
- int _selectedSize1 = 0;
+ int _selectedSize1 = 0; 
  String sugar = 'Little Sugar';
  int sizecost =0;
 

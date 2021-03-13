@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pick_and_go_project/Admin/Add_Items.dart';
 import 'package:pick_and_go_project/Admin/Manage_Items.dart';
+import 'package:pick_and_go_project/Admin/View_Orders.dart';
 class Admin extends StatelessWidget {
   static String id='Admin';
   @override
@@ -52,8 +53,9 @@ class Admin extends StatelessWidget {
             ),
 
             onPressed: ()
-
-          {},
+          {
+            Navigator.pushNamed(context, ViewOrders.id);
+          },
 
             child: Text('View User orders'),
           ),

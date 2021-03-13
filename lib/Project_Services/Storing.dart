@@ -11,9 +11,6 @@ class Storing  {
  final Firestore _firestore = Firestore.instance;
 
 
-
-
-
  addItems(Item item){
 
 _firestore.collection(kItemsCollections).add(
@@ -29,8 +26,18 @@ _firestore.collection(kItemsCollections).add(
 
  }
 
+ Stream <QuerySnapshot> loadOrders(){
+
+  return _firestore.collection(kbarnorders).snapshots();
 
 
+ }
+ Stream <QuerySnapshot> loadOrdersDetails(DocId){
+
+  return _firestore.collection(kbarnorders).document(DocId).collection(korderdetails).snapshots();
+
+
+ }
 
  Stream<QuerySnapshot> loadItems() {
 
@@ -64,6 +71,7 @@ _firestore.collection(kItemsCollections).add(
     kItemPrice : item.Iprice,
     kItemCategory : item.Icatgory,
     kItemquantity : item.Iquantity,
+    kItemSugar:item.Isugar,
 
 
 

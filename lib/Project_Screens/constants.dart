@@ -20,6 +20,7 @@ const kItemPrice='itemPrice';
 const kItemCategory ='itemCategory';
 const kItemImage='itemImage';
 const kItemquantity = 'itemquantity';
+const kItemSugar = 'itemsugar';
 
 const khotdrinks = 'hot drinks';
 const kcolddrinks = 'cold drinks';
