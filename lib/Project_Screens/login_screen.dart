@@ -9,28 +9,16 @@ import 'package:provider/provider.dart';
 import 'package:pick_and_go_project/Project_Screens/Kiosk_Screen.dart';
 import 'package:pick_and_go_project/Admin/Admin.dart';
 
-class LoginScreen extends StatefulWidget {
+class LoginScreen extends StatelessWidget {
   static String id = 'LoginScreen';
+  String accessT = 'Pick & GO Users Login';
 
-  @override
-  _LoginScreenState createState() => _LoginScreenState();
-}
-
-class _LoginScreenState extends State<LoginScreen> {
   final GlobalKey<FormState> Myglobalkey = GlobalKey<FormState>();
-
   String UserEmail;
-
   String UserPassword;
-
   final _auth = Auth();
-
   bool isAdmin = false;
-
   final AdminPassword = 'admin1234';
-
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -39,23 +27,32 @@ class _LoginScreenState extends State<LoginScreen> {
         key: Myglobalkey,
         child: ListView(
           children: <Widget>[
+            Flexible(
+              child: Hero(
+                //hero widget to get the logo from thew previous page
+
+                tag: 'logo',
+                child: Container(
+                  height: 120.0,
+                  /*
+                  child:
+                  Image.asset('images/logo.png'),
+                  
+                   */
+                ),
+              ),
+            ),
             Padding(
-              padding: EdgeInsets.only(top: 40),
+              padding: EdgeInsets.only(top: 10),
               child: Container(
-                height: MediaQuery.of(context).size.height * .2,
+                height: MediaQuery.of(context).size.height * .08,
                 child: Stack(
                   alignment: Alignment.center,
                   children: <Widget>[
-                    /*
-                    Image(
-                      image: AssetImage('images/logo-9.png'),
-                    ),
-
-                     */
                     Positioned(
                       bottom: 0,
                       child: Text(
-                        '',
+                        accessT,
                         style: TextStyle(
                           fontSize: 30,
                         ),
@@ -141,6 +138,7 @@ class _LoginScreenState extends State<LoginScreen> {
                 children: <Widget>[
                   GestureDetector(
                       onTap: () {
+                        accessT = 'Pick & GO Admin Login';
                         Provider.of<AdminState>(context, listen: false)
                             .ChangeAdmin(true);
                       },
@@ -153,6 +151,8 @@ class _LoginScreenState extends State<LoginScreen> {
                       )),
                   GestureDetector(
                       onTap: () {
+                        accessT = 'Pick & GO Users Login';
+
                         Provider.of<AdminState>(context, listen: false)
                             .ChangeAdmin(false);
                       },
@@ -173,16 +173,16 @@ class _LoginScreenState extends State<LoginScreen> {
   }
 
   void CheckUser(BuildContext context) async {
-    final progressHud = Provider.of<ProgressHud>(context,listen: false);
+    final progressHud = Provider.of<ProgressHud>(context, listen: false);
     progressHud.changeLoading(true);
 
     if (Myglobalkey.currentState.validate()) {
       Myglobalkey.currentState.save();
 
-      if (Provider.of<AdminState>(context,listen: false).Admin) {
+      if (Provider.of<AdminState>(context, listen: false).Admin) {
         if (UserPassword == AdminPassword) {
           try {
-          await  _auth.SignIn(UserEmail, UserPassword);
+            await _auth.SignIn(UserEmail, UserPassword);
             Navigator.pushNamed(context, Admin.id);
           } on PlatformException catch (e) {
             progressHud.changeLoading(false);
@@ -195,7 +195,7 @@ class _LoginScreenState extends State<LoginScreen> {
         }
       } else {
         try {
-         await  _auth.SignIn(UserEmail, UserPassword);
+          await _auth.SignIn(UserEmail, UserPassword);
           Navigator.pushNamed(context, Kiosk_Screen.id);
         } on PlatformException catch (e) {
           Scaffold.of(context).showSnackBar(SnackBar(content: Text(e.message)));

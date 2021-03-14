@@ -36,7 +36,7 @@ class SignupScreen extends StatelessWidget {
                 Padding(
                   padding:  EdgeInsets.only(top: 30),
                   child: Container(
-                    height: MediaQuery.of(context).size.height*.2,
+                    height: MediaQuery.of(context).size.height*.15,
                     child: Stack(
                       alignment: Alignment.center,
                       children: <Widget>[
@@ -50,7 +50,7 @@ class SignupScreen extends StatelessWidget {
                          */
                         Positioned(
                           bottom: 0,
-                          child: Text('',
+                          child: Text('PICK & GO Sign Up',
                             style:TextStyle(
                               fontSize: 30,
 
@@ -62,7 +62,7 @@ class SignupScreen extends StatelessWidget {
                     ),
                   ),
                 ),
-                SizedBox(height: 10,),
+                SizedBox(height: 20,),
                 MyTextFiled(
 
                   Click:(value){
