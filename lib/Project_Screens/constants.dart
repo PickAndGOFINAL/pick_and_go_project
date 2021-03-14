@@ -11,6 +11,8 @@ const kbarnorders ='barnorders';
 const korderdetails = 'orderdetails';
 const ktotalprice = 'totalprice';
 const karrivaltime = 'arrivaltime';
+const kusername = 'username';
+const kusercarplate = 'usercarplate';
 
 
 

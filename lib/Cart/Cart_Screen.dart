@@ -1,10 +1,12 @@
 
 
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pick_and_go_project/Items/item.dart';
 import 'package:pick_and_go_project/Project_Screens/Items_Additions.dart';
 import 'package:pick_and_go_project/Project_Screens/constants.dart';
 import 'package:pick_and_go_project/Project_Services/Storing.dart';
+import 'package:pick_and_go_project/Project_Services/Test.dart';
 import 'package:provider/provider.dart';
 
 import 'Cart.dart';
@@ -43,6 +45,37 @@ Future <void> opentimePicker(BuildContext context) async{
 
 
 }
+
+  String uid='';
+  String username ='';
+  String usercarplate = '';
+
+
+  @override
+  void initState(){
+    super.initState();
+    getcurrentuser ();
+
+
+  }
+  final FirebaseAuth _auth = FirebaseAuth.instance;
+  void getcurrentuser () async{
+
+    final FirebaseUser user = await _auth.currentUser();
+    uid = user.uid;
+    data data1 = data(uid: uid);
+    dynamic names = await data1.getCurrentuserdata();
+    if(names!=null){
+      setState(() {
+        username = names[0];
+        usercarplate = names[1];
+
+
+      });
+
+    }
+  }
+
 
 
 
@@ -232,6 +265,8 @@ Future <void> opentimePicker(BuildContext context) async{
            storing.StoreOrder({
              ktotalprice: price,
              karrivaltime: selcetedtime,
+             kusername : username,
+             kusercarplate : usercarplate,
            }, items);
            Scaffold.of(context).showSnackBar(SnackBar(content: Text('Orderd Successfully')));
             Navigator.pop(context);
