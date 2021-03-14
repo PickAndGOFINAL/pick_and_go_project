@@ -46,13 +46,16 @@ class _LoginScreenState extends State<LoginScreen> {
                 child: Stack(
                   alignment: Alignment.center,
                   children: <Widget>[
+                    /*
                     Image(
-                      image: AssetImage('images/logo.png'),
+                      image: AssetImage('images/logo-9.png'),
                     ),
+
+                     */
                     Positioned(
                       bottom: 0,
                       child: Text(
-                        'Pick & GO',
+                        '',
                         style: TextStyle(
                           fontSize: 30,
                         ),

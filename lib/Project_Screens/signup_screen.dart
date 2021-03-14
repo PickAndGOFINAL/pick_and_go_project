@@ -40,14 +40,17 @@ class SignupScreen extends StatelessWidget {
                     child: Stack(
                       alignment: Alignment.center,
                       children: <Widget>[
+                        /*
                         Image(
 
-                          image: AssetImage('images/logo.png'),
+                          image: AssetImage('images/logo-9.png'),
                         ),
 
+
+                         */
                         Positioned(
                           bottom: 0,
-                          child: Text('Pick & GO',
+                          child: Text('',
                             style:TextStyle(
                               fontSize: 30,
 
