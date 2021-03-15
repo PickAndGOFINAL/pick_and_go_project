@@ -2,6 +2,7 @@
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pick_and_go_project/Admin/Edit_Items.dart';
+import 'package:pick_and_go_project/Cart/Cart_Screen.dart';
 import 'package:pick_and_go_project/Items/item.dart';
 import 'package:pick_and_go_project/Project_Screens/Items_Additions.dart';
 import 'package:pick_and_go_project/Project_Services/Auth.dart';
@@ -37,6 +38,14 @@ class MenuScreen extends StatefulWidget {
                title: Text('Menu'),
                backgroundColor: Colors.brown,
                elevation: 0,
+               actions:<Widget> [
+                IconButton(
+                    icon: Icon(Icons.shopping_cart),
+                    onPressed: (){
+                      Navigator.pushNamed(context, CartScreen.id);
+
+                    })
+               ],
 
 
                bottom: TabBar(

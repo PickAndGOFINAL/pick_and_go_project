@@ -109,11 +109,16 @@ Future <void> opentimePicker(BuildContext context) async{
         title: Text('My cart',
             style: TextStyle(color: Colors.black)
         ),
-        leading: Icon(
-          Icons.arrow_back,
-          color: Colors.black,
+        leading: GestureDetector(
+          onTap: (){
+            Navigator.pop(context);
+          },
+          child: Icon(
+            Icons.arrow_back,
+            color: Colors.black,
 
 
+          ),
         ),
 
 

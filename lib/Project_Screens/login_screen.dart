@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:pick_and_go_project/Admin/Navigationbar.dart';
 import 'package:pick_and_go_project/Project_Provider/Progress_hud.dart';
 import 'package:pick_and_go_project/Project_Screens/constants.dart';
 import 'package:pick_and_go_project/Project_Screens/signup_screen.dart';
@@ -120,7 +121,7 @@ class LoginScreen extends StatelessWidget {
                       Navigator.pushNamed(context, SignupScreen.id);
                     },
                     child: Text(
-                      'Sign in',
+                      'Sign Up',
                       style: TextStyle(fontSize: 20, color: Colors.brown),
                     )),
               ],
@@ -196,7 +197,7 @@ class LoginScreen extends StatelessWidget {
       } else {
         try {
           await _auth.SignIn(UserEmail, UserPassword);
-          Navigator.pushNamed(context, Kiosk_Screen.id);
+          Navigator.pushNamed(context, Navigationbar.id);
         } on PlatformException catch (e) {
           Scaffold.of(context).showSnackBar(SnackBar(content: Text(e.message)));
         }

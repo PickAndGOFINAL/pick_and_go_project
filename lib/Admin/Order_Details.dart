@@ -15,6 +15,9 @@ class OrderDetails extends StatelessWidget {
         .settings
         .arguments;
     return Scaffold(
+      appBar: AppBar(
+        title: Text('Order Details',),
+      ),
       body: StreamBuilder<QuerySnapshot>(
           stream: storing.loadOrdersDetails(DocId),
           builder: (context, snapshot) {
@@ -39,7 +42,9 @@ class OrderDetails extends StatelessWidget {
                  padding: const EdgeInsets.all(20),
                  child: Container(
                    height: MediaQuery.of(context).size.height*.2,
-                   color: Colors.brown,
+                   color: Colors.white,
+
+
                    child: Padding(
                      padding: const EdgeInsets.all(10),
                      child: Column(
@@ -53,7 +58,7 @@ class OrderDetails extends StatelessWidget {
                          SizedBox(height: 5,),
                          Text('Item Quantity : ${items[index].Iquantity}',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
                          SizedBox(height: 5,),
-                         Text('Item Sugar level : ${items[index].Isugar}',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
+                         Text('Sugar level : ${items[index].Isugar}',style: TextStyle(fontSize: 20,fontWeight: FontWeight.bold),),
 
 
 

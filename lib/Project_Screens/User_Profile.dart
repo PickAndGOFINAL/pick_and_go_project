@@ -72,7 +72,7 @@ String usercarplate = '';
                   fontSize: 40.0,
                   color: Colors.white,
                   fontWeight: FontWeight.bold,
-                  fontFamily: "Pacifico",
+
                 ),
               ),
               Text(
@@ -82,7 +82,7 @@ String usercarplate = '';
                     color: Colors.blueGrey[200],
                     letterSpacing: 2.5,
                     fontWeight: FontWeight.bold,
-                    fontFamily: "Source Sans Pro"),
+                    ),
               ),
               SizedBox(
                 height: 20,

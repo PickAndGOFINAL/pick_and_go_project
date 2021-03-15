@@ -4,12 +4,14 @@ import 'package:pick_and_go_project/Admin/Add_Items.dart';
 import 'package:pick_and_go_project/Admin/Admin.dart';
 import 'package:pick_and_go_project/Admin/Edit_Items.dart';
 import 'package:pick_and_go_project/Admin/Manage_Items.dart';
+import 'package:pick_and_go_project/Admin/Navigationbar.dart';
 import 'package:pick_and_go_project/Admin/Order_Details.dart';
 import 'package:pick_and_go_project/Admin/View_Orders.dart';
 import 'package:pick_and_go_project/Cart/Cart.dart';
 import 'package:pick_and_go_project/Cart/Cart_Screen.dart';
 import 'package:pick_and_go_project/Project_Provider/AdminState.dart';
 import 'package:pick_and_go_project/Project_Provider/Progress_hud.dart';
+import 'package:pick_and_go_project/Project_Screens/Info.dart';
 import 'package:pick_and_go_project/Project_Screens/Items_Additions.dart';
 import 'package:pick_and_go_project/Project_Screens/Kiosk_Screen.dart';
 import 'package:pick_and_go_project/Project_Screens/Maps.dart';
@@ -44,8 +46,9 @@ class MyApp extends StatelessWidget {
       child: MaterialApp(
 
 
-        initialRoute:   logoScreens.id,
+        initialRoute: logoScreens.id,
         routes: {
+          Navigationbar.id:(context)=> Navigationbar(),
           logoScreens.id :(context) => logoScreens(),
           LoginScreen.id :(context)=> LoginScreen(),
           SignupScreen.id:(context)=> SignupScreen(),
@@ -59,6 +62,7 @@ class MyApp extends StatelessWidget {
           CartScreen.id:(context)=>CartScreen(),
           MapsScreen.id:(context)=>MapsScreen(),
           UserProfile.id:(context)=>UserProfile(),
+          Info.id:(context)=>Info(),
           ViewOrders.id :(context)=> ViewOrders(),
           OrderDetails.id:(context)=> OrderDetails(),
 

@@ -18,6 +18,9 @@ class _ManageItemsState extends State<ManageItems> {
   Widget build(BuildContext context) {
 
     return Scaffold(
+      appBar: AppBar(
+        title: Text(' Manage Items',),
+      ),
    backgroundColor: Colors.white,
       body: StreamBuilder<QuerySnapshot>(
         stream: storing.loadItems() ,

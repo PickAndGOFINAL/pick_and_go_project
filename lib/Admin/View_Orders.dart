@@ -12,6 +12,9 @@ class ViewOrders extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+        appBar: AppBar(
+          title: Text('View Orders',),
+        ),
      body: StreamBuilder<QuerySnapshot> (
       stream: storing.loadOrders() ,
       builder: (context,snapshot)
@@ -27,7 +30,11 @@ class ViewOrders extends StatelessWidget {
            orders.add(Order(
              DocId: doc.documentID,
              selectedtime: doc.data[karrivaltime],
-           totalPrice: doc.data[ktotalprice]
+           totalPrice: doc.data[ktotalprice],
+               username:doc.data[kusername],
+             usercarplate: doc.data[kusercarplate],
+             branch: doc.data[kbranch],
+             todaydate: doc.data[ktodaydate],
 
            ));
 
@@ -42,8 +49,8 @@ class ViewOrders extends StatelessWidget {
 
                  },
                  child: Container(
-                   height: MediaQuery.of(context).size.height*.2,
-                   color: Colors.brown,
+                   height: MediaQuery.of(context).size.height*.4,
+                   color: Colors.white,
                    child: Padding(
                      padding: const EdgeInsets.all(10),
                      child: Column(
@@ -53,6 +60,15 @@ class ViewOrders extends StatelessWidget {
                          Text('Total Price = \$${orders[index].totalPrice}',style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
                          SizedBox(height: 10,),
                          Text('Arrival Time : ${orders[index].selectedtime}',style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
+                         SizedBox(height: 10,),
+                         Text('Customer name : ${orders[index].username}',style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
+                         SizedBox(height: 10,),
+                         Text('Car Plate : ${orders[index].usercarplate}',style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
+                         SizedBox(height: 10,),
+                         Text('Branch :  ${orders[index].branch}',style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
+                         SizedBox(height: 10,),
+                         Text('Today Date : ${orders[index].todaydate}',style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
+                         SizedBox(height: 10,),
 
 
 

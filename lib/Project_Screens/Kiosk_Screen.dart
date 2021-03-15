@@ -22,10 +22,7 @@ class _kiosksState extends State<Kiosk_Screen> {
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Select Kiosk"),
-        backgroundColor: Colors.brown,
-      ),
+
       body: SafeArea(
         child: Column(
           children: <Widget>[

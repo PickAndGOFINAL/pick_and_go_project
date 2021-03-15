@@ -12,9 +12,8 @@ class EditItems extends StatelessWidget {
   Widget build(BuildContext context) {
       Item items = ModalRoute.of(context).settings.arguments;
     return Scaffold(
-
       appBar: AppBar(
-        title: Text('Edit items',),
+        title: Text('Admin Panal',),
       ),
       body: Form(
         key:  Myglobalkey,

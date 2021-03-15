@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:pick_and_go_project/Admin/Navigationbar.dart';
 import 'package:pick_and_go_project/Project_Provider/Progress_hud.dart';
 import 'package:pick_and_go_project/Project_Screens/Kiosk_Screen.dart';
 import 'package:pick_and_go_project/Project_Screens/User_Profile.dart';
@@ -121,7 +122,7 @@ class SignupScreen extends StatelessWidget {
                                'UserName': UserName,
                                'UserCarPlate':UserCarPlate,
                               });
-                              Navigator.pushNamed(context, Kiosk_Screen.id);
+                              Navigator.pushNamed(context, Navigationbar.id);
                               progresshud.changeLoading(false);
                         
                             }
@@ -134,7 +135,7 @@ class SignupScreen extends StatelessWidget {
                           progresshud.changeLoading(false);
                         },
 
-                        child: Text("Sign in",style: TextStyle(fontSize: 20,color: Colors.white),)
+                        child: Text("Sign Up",style: TextStyle(fontSize: 20,color: Colors.white),)
                     ),
                   ),
                 ),

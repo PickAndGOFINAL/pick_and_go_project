@@ -188,6 +188,7 @@ class _mapsState extends State<MapsScreen> {
   Widget build(BuildContext context) {
     dataname = ModalRoute.of(context).settings.arguments;
     return Scaffold(
+
       body: Column(
         children: <Widget>[
           Container(
@@ -218,6 +219,7 @@ class _mapsState extends State<MapsScreen> {
               ),
             ),
           ),
+
           Padding(
             padding: const EdgeInsets.all(3.5),
             child: FlatButton(
@@ -233,6 +235,8 @@ class _mapsState extends State<MapsScreen> {
                   style: TextStyle(fontSize: 20, color: Colors.white),
                 )),
           ),
+
+
         ],
       ),
     );
