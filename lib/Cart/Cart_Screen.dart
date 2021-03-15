@@ -1,5 +1,6 @@
 
 
+import 'package:date_format/date_format.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:pick_and_go_project/Items/item.dart';
@@ -8,6 +9,7 @@ import 'package:pick_and_go_project/Project_Screens/constants.dart';
 import 'package:pick_and_go_project/Project_Services/Storing.dart';
 import 'package:pick_and_go_project/Project_Services/Test.dart';
 import 'package:provider/provider.dart';
+import 'package:pick_and_go_project/Project_Services/Test2.dart';
 
 import 'Cart.dart';
 
@@ -21,9 +23,13 @@ class CartScreen extends StatefulWidget {
 
 class _CartScreenState extends State<CartScreen> {
 
+  DateTime _data = new DateTime.now();
 
+  String s1 ='';
 
   String selcetedtime = "Tap on the icon to select a time";
+
+
 
 Future <void> opentimePicker(BuildContext context) async{
 
@@ -51,13 +57,15 @@ Future <void> opentimePicker(BuildContext context) async{
   String usercarplate = '';
 
 
+
   @override
   void initState(){
     super.initState();
     getcurrentuser ();
 
-
   }
+
+
   final FirebaseAuth _auth = FirebaseAuth.instance;
   void getcurrentuser () async{
 
@@ -70,20 +78,25 @@ Future <void> opentimePicker(BuildContext context) async{
         username = names[0];
         usercarplate = names[1];
 
-
       });
 
     }
+    selctedbranch _selctedbranch = selctedbranch(uid: uid);
+    dynamic branch = await _selctedbranch.getCurrentuserdata();
+    if(branch!=null){
+      setState(() {
+        s1  = branch[0];
+      });
+    }
+
   }
-
-
-
-
-
 
   @override
   Widget build(BuildContext context) {
-
+    print(username);
+    print(usercarplate);
+    print(s1);
+    print(formatDate(_data, [dd, '-' , mm , '-', yyyy]));
     List<Item> items = Provider.of<Cart>(context).items;
     final double screenhighet = MediaQuery.of(context).size.height;
     final double screenwidth = MediaQuery.of(context).size.width;
@@ -267,6 +280,9 @@ Future <void> opentimePicker(BuildContext context) async{
              karrivaltime: selcetedtime,
              kusername : username,
              kusercarplate : usercarplate,
+             kbranch : s1,
+             ktodaydate : formatDate(_data, [dd, '-' , mm , '-', yyyy]),
+
            }, items);
            Scaffold.of(context).showSnackBar(SnackBar(content: Text('Orderd Successfully')));
             Navigator.pop(context);

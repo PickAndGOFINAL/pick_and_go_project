@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:pick_and_go_project/Project_Provider/Progress_hud.dart';
+import 'package:pick_and_go_project/Project_Screens/Kiosk_Screen.dart';
 import 'package:pick_and_go_project/Project_Screens/User_Profile.dart';
 import 'package:pick_and_go_project/Project_Services/Storing.dart';
 import 'package:provider/provider.dart';
@@ -120,7 +121,7 @@ class SignupScreen extends StatelessWidget {
                                'UserName': UserName,
                                'UserCarPlate':UserCarPlate,
                               });
-                              Navigator.pushNamed(context, UserProfile.id);
+                              Navigator.pushNamed(context, Kiosk_Screen.id);
                               progresshud.changeLoading(false);
                         
                             }

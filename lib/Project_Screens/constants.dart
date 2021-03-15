@@ -13,6 +13,8 @@ const ktotalprice = 'totalprice';
 const karrivaltime = 'arrivaltime';
 const kusername = 'username';
 const kusercarplate = 'usercarplate';
+const ktodaydate = 'todaydate';
+const kbranch = 'branch';
 
 
 

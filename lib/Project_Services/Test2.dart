@@ -2,14 +2,14 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 
-class data{
+class selctedbranch{
 
   final String uid;
 
-data ({this.uid});
+  selctedbranch({this.uid});
 
 
-  final userRef= Firestore.instance.collection('users');
+  final userRef= Firestore.instance.collection('Selectedbranch');
 
   /*
   Future updateinfo (String name , String carplate) async{
@@ -26,24 +26,21 @@ data ({this.uid});
    */
   Stream<QuerySnapshot> get users{
     return userRef.snapshots();
-}
+  }
 
-Future getCurrentuserdata () async {
-   try{
+  Future getCurrentuserdata () async {
+    try{
 
-     DocumentSnapshot doc = await userRef.document(uid).get();
-     String username =  doc.data['UserName'];
-     String usercarplate =  doc.data['UserCarPlate'];
-     return [username,usercarplate];
+      DocumentSnapshot doc = await userRef.document(uid).get();
+      String branchname =  doc.data['branchname'];
 
-   } catch(e){
-     print(e.toString());
-     return null;
-   }
+      return [branchname];
 
+    } catch(e){
+      print(e.toString());
+      return null;
+    }
 
-}
-
-
+  }
 
 }
