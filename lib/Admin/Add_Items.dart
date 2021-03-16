@@ -19,98 +19,102 @@ class AddItems extends StatelessWidget {
       ),
 body: Form(
   key:  Myglobalkey,
-  child:   Container(
-    child: Column(
+  child:   Padding(
+    padding: const EdgeInsets.all(8.0),
+    child: Container(
 
-      mainAxisAlignment: MainAxisAlignment.center,
+      child: Column(
 
-      children: <Widget>[
 
-        MyTextFiled(
 
-          Myhint: 'Item name',
+        children: <Widget>[
 
-          Click: (value){
+          MyTextFiled(
 
-            ItemName=value;
+            Myhint: 'Item name',
 
-          },
+            Click: (value){
 
-        ),
-
-        SizedBox(height: 10,),
-
-        MyTextFiled(
-
-          Myhint: 'Item Price',
-
-          Click: (value){
-
-            ItemPrice=value;
-
-          },
-
-        ),
-
-        SizedBox(height: 10,),
-
-        MyTextFiled(
-
-          Myhint: 'Item Category',
-
-          Click: (value){
-
-            ItemCatogry=value;
-
-          },
-
-        ),
-
-        SizedBox(height: 10,),
-
-        MyTextFiled(
-
-          Myhint: 'Item Image path',
-
-          Click: (value){
-
-            ItemImage=value;
-
-          },
-
-        ),
-
-        SizedBox(height: 20,),
-
-        RaisedButton(
-
-            shape: RoundedRectangleBorder(
-              borderRadius: BorderRadius.circular(20),
-
-            ),
-
-            onPressed: (){
-              if(Myglobalkey.currentState.validate()){
-                Myglobalkey.currentState.save();
-               storing.addItems(Item(
-                   Iname:ItemName,
-                   Iprice:ItemPrice,
-                   Icatgory:ItemCatogry,
-                   Iimage:ItemImage));
-              }
+              ItemName=value;
 
             },
 
-            child: Text('Add Item'),
+          ),
 
-            )
+          SizedBox(height: 5,),
+
+          MyTextFiled(
+
+            Myhint: 'Item Price',
+
+            Click: (value){
+
+              ItemPrice=value;
+
+            },
+
+          ),
+
+          SizedBox(height: 5,),
+
+          MyTextFiled(
+
+            Myhint: 'Item Category',
+
+            Click: (value){
+
+              ItemCatogry=value;
+
+            },
+
+          ),
+
+          SizedBox(height: 5,),
+
+          MyTextFiled(
+
+            Myhint: 'Item Image path',
+
+            Click: (value){
+
+              ItemImage=value;
+
+            },
+
+          ),
+
+          SizedBox(height: 5,),
+
+          RaisedButton(
+
+              shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.circular(20),
+
+              ),
+
+              onPressed: (){
+                if(Myglobalkey.currentState.validate()){
+                  Myglobalkey.currentState.save();
+                 storing.addItems(Item(
+                     Iname:ItemName,
+                     Iprice:ItemPrice,
+                     Icatgory:ItemCatogry,
+                     Iimage:ItemImage));
+                }
+
+              },
+
+              child: Text('Add Item'),
+
+              )
 
 
 
-      ],
+        ],
+
+      ),
 
     ),
-
   ),
 ),
     );
