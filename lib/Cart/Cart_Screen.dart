@@ -3,6 +3,7 @@
 import 'package:date_format/date_format.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
+import 'package:pick_and_go_project/Admin/Navigationbar.dart';
 import 'package:pick_and_go_project/Items/item.dart';
 import 'package:pick_and_go_project/Project_Screens/Items_Additions.dart';
 import 'package:pick_and_go_project/Project_Screens/constants.dart';
@@ -290,7 +291,11 @@ Future <void> opentimePicker(BuildContext context) async{
 
            }, items);
            Scaffold.of(context).showSnackBar(SnackBar(content: Text('Orderd Successfully')));
-            Navigator.pop(context);
+           setState(() {
+             items.clear();
+             Navigator.pushNamed(context, Navigationbar.id);
+           });
+
          }catch(ex){
            print(ex);
          }

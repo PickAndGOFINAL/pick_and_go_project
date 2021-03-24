@@ -14,6 +14,14 @@ class ViewOrders extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text('View Orders',),
+          actions:<Widget> [
+            IconButton(
+                icon: Icon(Icons.delete),
+                onPressed: (){
+                  storing.deleteOrders();
+
+                })
+          ],
         ),
      body: StreamBuilder<QuerySnapshot> (
       stream: storing.loadOrders() ,

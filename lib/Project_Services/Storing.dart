@@ -53,6 +53,17 @@ _firestore.collection(kItemsCollections).add(
   _firestore.collection(kItemsCollections).document(ID).delete();
  }
 
+ deleteOrders(){
+
+  _firestore.collection(kbarnorders).getDocuments().then((snapshot) {
+
+   for (DocumentSnapshot ds in snapshot.documents){
+    ds.reference.delete();
+   }
+
+  });
+ }
+
 
  editItems(itemdata,ID){
 
