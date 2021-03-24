@@ -14,6 +14,7 @@ class ViewOrders extends StatelessWidget {
     return Scaffold(
         appBar: AppBar(
           title: Text('View Orders',),
+          /*
           actions:<Widget> [
             IconButton(
                 icon: Icon(Icons.delete),
@@ -22,6 +23,8 @@ class ViewOrders extends StatelessWidget {
 
                 })
           ],
+
+           */
         ),
      body: StreamBuilder<QuerySnapshot> (
       stream: storing.loadOrders() ,
@@ -77,6 +80,19 @@ class ViewOrders extends StatelessWidget {
                          SizedBox(height: 10,),
                          Text('Today Date : ${orders[index].todaydate}',style: TextStyle(fontSize: 18,fontWeight: FontWeight.bold),),
                          SizedBox(height: 10,),
+
+                         GestureDetector(
+
+                             onTap: () {
+                                storing.deleteOrders(orders[index].DocId );
+                             },
+                             child:
+                             Icon(Icons.delete,
+                               size: 30,
+                               color: Colors.red,
+                             )
+
+                         ),
 
 
 

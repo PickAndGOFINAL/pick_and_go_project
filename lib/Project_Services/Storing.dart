@@ -53,15 +53,13 @@ _firestore.collection(kItemsCollections).add(
   _firestore.collection(kItemsCollections).document(ID).delete();
  }
 
- deleteOrders(){
+ deleteOrders(ID){
 
-  _firestore.collection(kbarnorders).getDocuments().then((snapshot) {
+  _firestore.collection(kbarnorders).document(ID).delete();
 
-   for (DocumentSnapshot ds in snapshot.documents){
-    ds.reference.delete();
-   }
 
-  });
+
+
  }
 
 

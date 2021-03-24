@@ -290,10 +290,11 @@ Future <void> opentimePicker(BuildContext context) async{
              ktodaydate : formatDate(_data, [dd, '-' , mm , '-', yyyy]),
 
            }, items);
-           Scaffold.of(context).showSnackBar(SnackBar(content: Text('Orderd Successfully')));
+
            setState(() {
              items.clear();
              Navigator.pushNamed(context, Navigationbar.id);
+             Scaffold.of(context).showSnackBar(SnackBar(content: Text('Orderd Successfully')));
            });
 
          }catch(ex){

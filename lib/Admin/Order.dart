@@ -9,6 +9,7 @@ class Order{
   String todaydate;
 
 
+
 Order({this.totalPrice,this.selectedtime,this.username,this.usercarplate,this.branch,this.todaydate,this.DocId});
 
 
